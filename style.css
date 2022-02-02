@@ -1,0 +1,861 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    position: fixed;
+    letter-spacing: 2px;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 8vh;
+    background-color: white;
+    border-bottom: rgb(56, 56, 255) 2px solid;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition:ease-in 0.2s;
+    z-index: 1000;
+}
+nav.sticky{
+    background-color: rgb(0, 0, 124);
+    border-bottom: none;
+    box-shadow: 0px 2px 10px white;
+}
+.logo{
+    color: rgb(0, 0, 0);
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 24px;
+}
+.logo a{
+    font-family: 'Eczar', serif;
+    text-decoration: none;
+    color: #0012B9;
+}
+.sticky .logo a{
+    color: whitesmoke;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    /* width: 30%;
+    background-color: #01FF01;
+    padding-right: 20px; */
+}
+.nav-links li{
+    list-style: none; 
+    padding-left: 10px;
+}
+.nav-links a{
+    color: #0012B9;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: 300;
+    font-size: 14px;
+}
+.sticky .nav-links a{
+    color: #ffffff;
+}
+.burger{
+    display: none;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.burger div{
+    background-color: #0012B9;  
+    width: 25px;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin: 5px;
+    transform: all 0.3s ease;
+}
+
+@media screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    nav{
+        padding: 0;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        min-width: 200px;
+        background-color: rgba(53, 53, 53, 0.4);
+        backdrop-filter: blur(3px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .sticky .nav-links a{
+        color: #ffffff;
+    }
+    .burger{
+        display: block;
+    }
+    .burger div{
+        background-color: #0012B9;
+    }
+    .sticky .burger div{
+        background-color: #ffffff;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+.nav-active li{
+    opacity: 1;
+}
+
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+    transition:linear 0.2s;
+}
+.toggle .line2{
+    opacity: 0;
+    transition:linear 0.2s;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-4px, -6px);
+    transition:linear 0.2s;
+}
+
+
+#Home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+#Home .content{
+    display:  flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 24px;
+    line-height: 60px;
+}
+#Home .content .p2{
+    font-family: 'Eczar', serif;
+    font-size: 86px;
+}
+#Home .content .p3{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+}
+#Home .content .p3 pre{
+    font-family: 'Kaushan Script', cursive;
+}
+#Home a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-image: linear-gradient(45deg,#001BA8, #0428E5);
+    transition: 0.2s;
+}
+#Home a:hover{
+    font-size: 22px;
+}
+#Home .svg img{
+    width: 600px;
+    height: 600px;
+}
+
+@media screen and (max-width:1100px){
+    #Home .svg img{
+        width: 400px;
+        height: 400px;
+    }
+    #Home .content{
+        display:  flex;
+        text-align: start;
+        flex-direction: column;
+        font-size: 15px;
+        line-height: 40px;
+    }
+    #Home .content .p2{
+        font-family: 'Eczar', serif;
+        font-size: 60px;
+    }
+    #Home .content .p3{
+        display: flex;
+        flex-direction: row;
+        font-size: 14px;
+    }
+    #Home a{
+        width: 200px;
+        font-size: 18px;
+    }
+    #Home a:hover{
+        width: 200px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:768px){
+    #Home{
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+    }
+    #Home .svg img{
+        width: 300px;
+        height: 300px;
+    }
+    #Home .content{
+        display:  flex;
+        text-align: start;
+        flex-direction: column;
+        font-size: 15px;
+        line-height: 40px;
+    }
+    #Home .content .p2{
+        font-family: 'Eczar', serif;
+        font-size: 48px;
+    }
+    #Home .content .p3{
+        display: flex;
+        flex-direction: row;
+        font-size: 11px;
+    }
+    #Home a{
+        width: 200px;
+    }
+}
+
+
+
+
+
+
+#About .opencv{
+    width: 50px;
+    height: 50px;
+}
+#About .opencv path{
+    fill: black;
+    transition: 0.2s linear;
+}
+#About a:hover .opencv path.red{
+    fill: #FF0101;
+}
+#About a:hover .opencv path.green{
+    fill: #0178ff;
+}
+#About a:hover .opencv path.blue{
+    fill: #01FF01;
+}
+
+#About .react{
+    width: 50px;
+    height: 50px;
+}
+#About a .react path{
+    transition: 0.2s linear;
+}
+#About a:hover .react path{
+    fill: blue;
+}
+
+#About .tensorflow{
+    width: 40px;
+    height: 40px;
+}
+#About .tensorflow path{
+    transition: 0.2s linear;
+}
+#About a .tensorflow path{
+    transition: 0.2s linear;
+}
+#About a:hover .tensorflow path{
+    fill: orange;
+}
+
+#About .python{
+    width: 40px;
+    height: 40px;
+}
+#About .python path{
+    transition: 0.2s linear;
+}
+#About a:hover .python path.orange{
+    fill: rgb(255, 174, 0);
+}
+#About a:hover .python path.blue{
+    fill: rgb(3, 0, 187);
+}
+
+#About .html{
+    width: 40px;
+    height: 40px;
+}
+#About .html path{
+    transition: 0.2s linear;
+}
+#About a:hover .html path{
+    fill: rgb(255, 166, 0);
+}
+
+#About .css{
+    width: 40px;
+    height: 40px;
+}
+#About .css path{
+    transition: 0.2s linear;
+}
+#About a:hover .css path{
+    fill: rgb(0, 195, 255);
+}
+
+#About .js{
+    width: 40px;
+    height: 40px;
+}
+#About .js path{
+    transition: 0.2s linear;
+}
+#About a:hover .js path{
+    fill: rgb(255, 208, 0);
+}
+
+#About .scikit{
+    width: 50px;
+    height: 50px;
+}
+#About .scikit path{
+    transition: 0.2s linear;
+    fill: black;
+}
+#About a:hover .scikit path.orange{
+    fill: #f89939;
+}
+#About a:hover .scikit path.blue{
+    fill: #3499cd;
+}
+
+#About .flask{
+    width: 50px;
+    height: 50px;
+}
+
+#About .node{
+    width: 50px;
+    height: 50px;
+}
+#About .node path{
+    transition: 0.2s linear;
+    fill: black;
+}
+#About a:hover .node path.green{
+    fill: #539E43;
+}
+
+#About .mongo{
+    width: 50px;
+    height: 50px;
+}
+#About .mongo path{
+    transition: 0.2s linear;
+    fill: black;
+}
+#About a:hover .mongo path{
+    fill: #2e9604;
+}
+#About .express{
+    width: 50px;
+    height: 50px;
+    transition: 0.2s;
+}
+#About a .express path{
+    fill: black;
+    transition: 0.2s;
+}
+#About a:hover .express path{
+    fill: #222222;
+}
+
+
+#About{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-image: linear-gradient(90deg,rgb(2, 2, 109),rgb(1, 1, 75));
+    justify-content: space-between;
+    padding: 20px 50px;
+    color: white;
+}
+#About .img img{
+    width: 400px;
+    height: 400px;
+}
+#About .content{
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+#About .icons{
+    display: flex;
+    flex-direction: column;
+}
+#About .icons div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#About .heading{
+    font-size: 20px;
+    display: inline-block;
+    flex-direction: column;
+}
+#About .first{
+    text-align: justify;
+}
+#About .line{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+#About .icons a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 2px;
+    text-decoration: none;
+    color: rgb(6, 22, 112);
+    text-transform: capitalize;
+}
+@media screen and (max-width:1100px){
+    #About{
+        min-height: 100vh;
+        padding: 50px;
+    }
+    #About .img img{
+        width: 300px;
+        height: 300px;
+    }
+    #About .content{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width:768px){
+    #About{
+        justify-content: center;
+    }
+    /* #About .content{
+        height: 80vh;
+        width: 100%;
+    } */
+    #About .img img{
+        display: none;
+    }
+    #About .icons a{
+        width: 60px;
+        height: 60px;
+    }
+    #About .icons svg{
+        width: 30px;
+        height: 30px;
+    }
+    #About .opencv path.red{
+        fill: #FF0101;
+    }
+    #About .opencv path.green{
+        fill: #0178ff;
+    }
+    #About .opencv path.blue{
+        fill: #01FF01;
+    }
+
+    #About .react path{
+        fill: blue;
+    }
+
+    #About .tensorflow path{
+        fill: orange;
+    }
+
+    #About .python path.orange{
+        fill: rgb(255, 174, 0);
+    }
+    #About .python path.blue{
+        fill: rgb(3, 0, 187);
+    }
+
+    #About .html path{
+        fill: rgb(255, 166, 0);
+    }
+
+    #About .css path{
+        fill: rgb(0, 195, 255);
+    }
+
+    #About .js path{
+        fill: rgb(255, 208, 0);
+    }
+
+    #About .scikit path.orange{
+        fill: #f89939;
+    }
+    #About .scikit path.blue{
+        fill: #3499cd;
+    }
+
+    #About .node path.green{
+        fill: #539E43;
+    }
+
+    #About .mongo path{
+        fill: #2e9604;
+    }
+
+    #About .express path{
+        fill: #222222;
+    }
+}
+
+
+
+
+
+#Project{
+    min-height: 100vh;
+    width: 100%;
+    padding: 10vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#Project .proj{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#Project .heading{
+    font-size: 20px;
+    display: inline-block;
+    flex-direction: column;
+}
+#Project .line{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+#Project .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#Project .image-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
+#Project .image-container .box{
+    display: none;
+}
+#Project .image{
+    /* change this */
+    height: 350px;
+    width: 700px;
+    border: 10px solid rgb(255, 255, 255);
+    box-shadow: 0 5px 15px rgba(0,0, 0, 0.5);
+    overflow: hidden;
+    cursor: pointer;
+}
+#Project .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.2s linear;
+}
+#Project .image:hover img{
+    transform: scale(1.1);
+}
+
+#Project .popup-image{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0, 0, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100000;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+#Project .popup-image span{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+}
+#Project .popup-image img{
+    border: 5px solid white;
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+}
+#Project .popup-image .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 750px;
+}
+#Project .popup-image p{
+    color: white;
+    font-size: 20px;
+}
+#Project .popup-image a{
+    background-color: #0178ff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 3px;
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+}
+@media (max-width:768px){
+    #Project .popup-image img{
+        width: 95%;
+    }
+    #Project .popup-image .box{
+        width: 90%;
+    }
+    #Project .image{
+        margin: 0 50px;
+        height: auto;
+        width: auto;
+    }
+    #Project .popup-image p,#Project .popup-image a {
+        font-size: 16px;
+    }
+}
+
+
+#Contact{
+    height: 100vh;
+    width: 100%;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+#Contact .contact{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+}
+#Contact .svg img{
+    width: 400px;
+    height: 400px;
+}
+#Contact .content{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    align-items: center;
+}
+#Contact .heading{
+    font-size: 20px;
+    display: inline-block;
+    flex-direction: column;
+}
+#Contact .line{
+    width: 100%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+#Contact .inputbox .btn{
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: #0428E5;
+    transition: 0.2s;
+}
+#Contact .inputbox .btn:hover{
+    background-color: #0478e5;
+}
+
+#Contact .contactform{
+    width: 60%;
+}
+#Contact .inputbox{
+    width: 100%;
+    margin-top: 10px;
+}
+#Contact .inputbox input{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+#Contact .inputbox textarea{
+        width: 100%;
+        padding: 5px 0;
+        font-size: 16px;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 2px solid black;
+        outline: none;
+        resize: none;
+}
+#Contact .footer{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+#Contact .footer svg{
+    width: 25px;
+    height: 25px;
+}
+#Contact .footer a{
+    text-decoration: none;
+    margin: 0 20px;
+    height: 25px;
+}
+#Contact .footer svg path{
+    fill: rgb(2, 91, 173);
+}
+#Contact .footer svg.insta:hover path{
+    fill:url(#paint0_linear_163_4);
+}
+#Contact .footer svg.whatsapp:hover path{
+    fill: rgb(4, 184, 4);
+}
+#Contact .footer svg.github:hover path{
+    fill: black;
+}
+#Contact .footer svg.mail:hover path{
+    fill: rgb(90, 0, 0);
+}
+#Contact .reply{
+    margin-top: 20px;
+    display: none;
+    flex-direction: row;
+    background-color: #cc3000;
+    color: white;
+    padding: 10px 20px;
+}
+#Contact .reply.show{
+    display: flex;
+}
+#Contact img{
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+}
+
+
+@media screen and (max-width:768px){
+    #Contact{
+        padding: 0;
+    }
+    #Contact .svg{
+        display: none;
+    }
+    #Contact .contactform{
+        width: 80%;
+    }
+    #Contact .contact{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 0 0;
+        align-items: center;
+    }
+    #Contact .content{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        justify-content: center;
+        align-items: center;
+    }
+    #Contact .footer svg.insta path{
+        fill:url(#paint0_linear_163_4);
+    }
+    #Contact .footer svg.whatsapp path{
+        fill: rgb(4, 184, 4);
+    }
+    #Contact .footer svg.github path{
+        fill: black;
+    }
+    #Contact .footer svg.mail path{
+        fill: rgb(90, 0, 0);
+    }
+}
